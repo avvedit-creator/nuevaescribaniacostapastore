@@ -269,6 +269,17 @@
     nav.classList.remove('open');
     toggle.setAttribute('aria-expanded', 'false');
   }));
+
+  document.querySelectorAll('.contact-item .value').forEach(el => {
+    el.addEventListener('click', () => {
+      if (!navigator.clipboard) return;
+      const original = el.textContent;
+      navigator.clipboard.writeText(original.trim()).then(() => {
+        el.textContent = '¡Copiado!';
+        setTimeout(() => { el.textContent = original; }, 1200);
+      }).catch(() => {});
+    });
+  });
 </script>
 
 </body>
