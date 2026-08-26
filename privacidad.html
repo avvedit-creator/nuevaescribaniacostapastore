@@ -129,9 +129,6 @@
   .fee-note{margin-top:22px;font-size:0.84rem;color:var(--ink-soft);font-style:italic;}
 
   /* cta banner */
-  .video-strip{position:relative;overflow:hidden;height:320px;}
-  .video-strip video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
-  @media (max-width:700px){.video-strip{height:220px;}}
   .cta-banner{position:relative;overflow:hidden;min-height:340px;display:flex;align-items:center;padding:0;background:var(--bg);}
   .cta-banner video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 55%;z-index:0;}
   .cta-banner::before{content:"";position:absolute;inset:0;z-index:1;background:radial-gradient(ellipse 60% 100% at 30% 50%, var(--cream) 30%, rgba(233,230,221,0.55) 60%, rgba(233,230,221,0) 85%);}
@@ -143,6 +140,10 @@
   @media (max-width:700px){.cta-banner::before{background:radial-gradient(ellipse 90% 100% at 50% 40%, var(--cream) 45%, rgba(233,230,221,0.6) 70%, rgba(233,230,221,0.15) 100%);} .cta-banner .wrap{text-align:center;max-width:100%;}}
 
   /* contact */
+  .contact{position:relative;overflow:hidden;}
+  .contact video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;}
+  .contact::before{content:"";position:absolute;inset:0;z-index:1;background:rgba(233,230,221,0.9);}
+  .contact .wrap{position:relative;z-index:2;}
   .contact .grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;}
   @media (max-width:900px){.contact .grid{grid-template-columns:1fr;}}
   .contact-form{display:flex;flex-direction:column;gap:16px;margin-top:22px;}
