@@ -47,7 +47,7 @@
   .brand .wordmark .sub{display:inline-flex;align-items:center;gap:7px;font-size:0.56rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--steel);font-weight:600;margin-top:5px;}
   .brand .wordmark .sub .ln{width:14px;height:1px;background:currentColor;display:inline-block;}
   nav.primary{display:flex;gap:4px;align-items:center;}
-  nav.primary a{font-size:0.76rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;padding:9px 12px;border-radius:0;color:var(--ink-soft);transition:color .15s ease;white-space:nowrap;border-bottom:1.5px solid transparent;}
+  nav.primary a{font-size:0.72rem;font-weight:600;letter-spacing:0.03em;text-transform:uppercase;padding:9px 8px;border-radius:0;color:var(--ink-soft);transition:color .15s ease;white-space:nowrap;border-bottom:1.5px solid transparent;}
   nav.primary a:hover{color:var(--navy);}
   nav.primary a.active{color:var(--navy);border-bottom-color:var(--navy);}
   .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;font-weight:700;font-size:0.8rem;letter-spacing:0.04em;text-transform:uppercase;border-radius:2px;border:1.5px solid var(--navy);white-space:nowrap;cursor:pointer;font-family:inherit;}
@@ -59,7 +59,7 @@
   .btn.on-navy:hover{background:#F5F2E9;color:var(--navy);}
   .menu-toggle{display:none;background:none;border:1px solid var(--line);border-radius:6px;width:40px;height:40px;align-items:center;justify-content:center;cursor:pointer;flex-direction:column;gap:4px;}
   .menu-toggle span{display:block;width:18px;height:2px;background:var(--navy);}
-  @media (max-width:980px){
+  @media (max-width:1100px){
     nav.primary{position:fixed;inset:65px 0 0 0;background:var(--bg);flex-direction:column;align-items:stretch;padding:18px;gap:4px;display:none;overflow:auto;}
     nav.primary.open{display:flex;}
     nav.primary a{padding:14px 10px;border-bottom:1px solid var(--line);border-radius:0;}
@@ -139,8 +139,7 @@
   @media (max-width:700px){.cta-banner::before{background:radial-gradient(ellipse 90% 100% at 50% 40%, var(--cream) 45%, rgba(233,230,221,0.6) 70%, rgba(233,230,221,0.15) 100%);} .cta-banner .wrap{text-align:center;max-width:100%;}}
 
   /* contact */
-  .contact .grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;}
-  @media (max-width:900px){.contact .grid{grid-template-columns:1fr;}}
+  .contact .grid{max-width:640px;}
   .contact-list{margin-top:28px;display:flex;flex-direction:column;gap:20px;}
   .contact-item{display:flex;align-items:flex-start;gap:14px;}
   .contact-item svg{width:22px;height:22px;flex:none;color:var(--navy);margin-top:2px;}
@@ -148,8 +147,6 @@
   .contact-item .value{font-size:1rem;margin-top:2px;}
   .contact-item a.value:hover{text-decoration:underline;}
   .contact-cta{margin-top:30px;display:flex;gap:14px;flex-wrap:wrap;}
-  .map-frame{border-radius:4px;overflow:hidden;border:1px solid var(--line);aspect-ratio:4/3;}
-  .map-frame iframe{width:100%;height:100%;border:0;filter:grayscale(0.15) contrast(1.02);}
 
   /* footer */
   footer{background:var(--bg);color:var(--ink-soft);padding:64px 0 0;border-top:1px solid var(--line);}
@@ -180,7 +177,6 @@
     <nav class="primary" id="primaryNav">
       <a href="index.html">Inicio</a>
       <a href="la-escribania.html">La Escribanía</a>
-      <a href="index.html#servicios">Servicios</a>
       <a href="etica.html">La Ética</a>
       <a href="profesion.html">La Profesión</a>
       <a href="propuesta.html">Propuesta</a>
