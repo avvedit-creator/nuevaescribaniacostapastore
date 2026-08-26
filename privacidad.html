@@ -71,9 +71,12 @@
   .hero{padding:0;}
   .hero-row{display:grid;grid-template-columns:1.05fr 0.95fr;align-items:stretch;min-height:640px;}
   @media (max-width:900px){.hero-row{grid-template-columns:1fr;min-height:0;}}
-  .hero-copy{padding:64px 28px 56px calc((100vw - 1180px) / 2 + 28px);display:flex;flex-direction:column;justify-content:center;}
-  @media (max-width:1236px){.hero-copy{padding-left:28px;}}
-  @media (max-width:900px){.hero-copy{padding:48px 20px 40px;}}
+  .hero-copy{position:relative;overflow:hidden;}
+  .hero-copy video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;}
+  .hero-copy::before{content:"";position:absolute;inset:0;z-index:1;background:rgba(233,230,221,0.82);}
+  .hero-copy-inner{position:relative;z-index:2;height:100%;padding:64px 28px 56px calc((100vw - 1180px) / 2 + 28px);display:flex;flex-direction:column;justify-content:center;}
+  @media (max-width:1236px){.hero-copy-inner{padding-left:28px;}}
+  @media (max-width:900px){.hero-copy-inner{padding:48px 20px 40px;}}
   .hero h1{font-size:clamp(2.1rem,4.4vw,3.15rem);}
   .hero .lede{margin-top:22px;max-width:46ch;color:var(--ink-soft);font-size:1.02rem;}
   .hero .cta-row{margin-top:34px;display:flex;gap:14px;flex-wrap:wrap;}
@@ -97,7 +100,7 @@
   .card .more{margin-top:18px;font-size:0.76rem;font-weight:700;letter-spacing:0.03em;text-transform:uppercase;color:var(--navy);border-bottom:1px solid currentColor;padding-bottom:2px;}
 
   /* values / navy band */
-  .values{background:var(--navy);color:#F5F2E9;position:relative;overflow:hidden;}
+  .values{background:var(--navy);color:#F5F2E9;position:relative;overflow:hidden;padding:24px 0;}
   .values .wrap{position:relative;z-index:2;}
   .values .top-row{display:flex;align-items:center;justify-content:space-between;gap:48px;flex-wrap:wrap;}
   .values .intro{max-width:640px;}
@@ -106,11 +109,11 @@
   .values .rule{background:#9FB2CE;}
   .values p.copy{margin-top:18px;color:#CBD5E5;max-width:56ch;}
   .values-brand{display:flex;flex-direction:column;align-items:center;flex:none;}
-  .values-brand .mark{width:66px;height:73px;margin-bottom:16px;}
+  .values-brand .mark{width:92px;height:102px;margin-bottom:18px;}
   .values-brand .wordmark{display:flex;flex-direction:column;align-items:center;line-height:1.05;}
-  .values-brand .wordmark .name{font-family:"DM Serif Display",serif;font-size:1.8rem;letter-spacing:0.08em;text-transform:uppercase;color:#F5F2E9;white-space:nowrap;}
-  .values-brand .wordmark .sub{display:inline-flex;align-items:center;gap:7px;font-size:0.6rem;letter-spacing:0.3em;text-transform:uppercase;color:#9FB2CE;font-weight:600;margin-top:6px;}
-  .values-brand .wordmark .sub .ln{width:14px;height:1px;background:currentColor;display:inline-block;}
+  .values-brand .wordmark .name{font-family:"DM Serif Display",serif;font-size:2.5rem;letter-spacing:0.08em;text-transform:uppercase;color:#F5F2E9;white-space:nowrap;}
+  .values-brand .wordmark .sub{display:inline-flex;align-items:center;gap:9px;font-size:0.84rem;letter-spacing:0.3em;text-transform:uppercase;color:#9FB2CE;font-weight:600;margin-top:8px;}
+  .values-brand .wordmark .sub .ln{width:18px;height:1px;background:currentColor;display:inline-block;}
   @media (max-width:700px){.values .top-row{flex-direction:column;align-items:flex-start;} .values-brand{align-items:flex-start;}}
 
   /* detail sections */
@@ -168,8 +171,8 @@
   .contact-item a.value:hover{text-decoration:underline;}
 
   /* footer */
-  footer{background:var(--bg);color:var(--ink-soft);padding:64px 0 0;border-top:1px solid var(--line);}
-  .footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:40px;padding-bottom:48px;border-bottom:1px solid var(--line);}
+  footer{background:var(--bg);color:var(--ink-soft);padding:28px 0 0;border-top:1px solid var(--line);}
+  .footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:40px;padding-bottom:24px;border-bottom:1px solid var(--line);}
   @media (max-width:780px){.footer-grid{grid-template-columns:1fr;gap:32px;}}
   .footer-logo{display:inline-block;}
   .footer-logo img{height:220px;width:auto;display:block;}
@@ -182,7 +185,7 @@
   footer .fcontact div{display:flex;align-items:flex-start;gap:10px;}
   footer .fcontact a, footer .fcontact span{color:var(--ink-soft);}
   footer .fcontact svg{width:16px;height:16px;flex:none;margin-top:3px;color:var(--navy);}
-  .footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;padding:22px 0;font-size:0.885rem;color:var(--ink-soft);}
+  .footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;padding:14px 0;font-size:0.885rem;color:var(--ink-soft);}
 
   .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);}
   .back-link{display:inline-flex;align-items:center;gap:6px;font-size:0.78rem;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:var(--navy);border-bottom:1px solid currentColor;padding-bottom:2px;margin-bottom:32px;}
