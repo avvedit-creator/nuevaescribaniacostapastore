@@ -71,9 +71,12 @@
   .hero{padding:0;}
   .hero-row{display:grid;grid-template-columns:1.05fr 0.95fr;align-items:stretch;min-height:640px;}
   @media (max-width:900px){.hero-row{grid-template-columns:1fr;min-height:0;}}
-  .hero-copy{padding:64px 28px 56px calc((100vw - 1180px) / 2 + 28px);display:flex;flex-direction:column;justify-content:center;}
-  @media (max-width:1236px){.hero-copy{padding-left:28px;}}
-  @media (max-width:900px){.hero-copy{padding:48px 20px 40px;}}
+  .hero-copy{position:relative;overflow:hidden;}
+  .hero-copy video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;}
+  .hero-copy::before{content:"";position:absolute;inset:0;z-index:1;background:rgba(233,230,221,0.82);}
+  .hero-copy-inner{position:relative;z-index:2;height:100%;padding:64px 28px 56px calc((100vw - 1180px) / 2 + 28px);display:flex;flex-direction:column;justify-content:center;}
+  @media (max-width:1236px){.hero-copy-inner{padding-left:28px;}}
+  @media (max-width:900px){.hero-copy-inner{padding:48px 20px 40px;}}
   .hero h1{font-size:clamp(2.1rem,4.4vw,3.15rem);}
   .hero .lede{margin-top:22px;max-width:46ch;color:var(--ink-soft);font-size:1.02rem;}
   .hero .cta-row{margin-top:34px;display:flex;gap:14px;flex-wrap:wrap;}
@@ -213,12 +216,17 @@
 <section id="inicio" class="hero">
   <div class="hero-row">
     <div class="hero-copy">
-      <p class="eyebrow">Escribanía de confianza</p>
-      <h1>Notaría abierta,<br>Juzgado cerrado.</h1>
-      <hr class="rule">
-      <p class="lede">Brindamos soluciones notariales con profesionalismo, confidencialidad y un compromiso absoluto con cada cliente.</p>
-      <div class="cta-row">
-        <a class="btn solid" href="#contacto">Consultar</a>
+      <video autoplay muted loop playsinline preload="auto">
+        <source src="puerta.mp4" type="video/mp4">
+      </video>
+      <div class="hero-copy-inner">
+        <p class="eyebrow">Escribanía de confianza</p>
+        <h1>Notaría abierta,<br>Juzgado cerrado.</h1>
+        <hr class="rule">
+        <p class="lede">Brindamos soluciones notariales con profesionalismo, confidencialidad y un compromiso absoluto con cada cliente.</p>
+        <div class="cta-row">
+          <a class="btn solid" href="#contacto">Consultar</a>
+        </div>
       </div>
     </div>
     <div class="hero-media">
