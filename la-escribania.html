@@ -128,8 +128,9 @@
   .fee-note{margin-top:22px;font-size:0.84rem;color:var(--ink-soft);font-style:italic;}
 
   /* cta banner */
-  .cta-banner{position:relative;overflow:hidden;background-image:url("data:image/webp;base64,{{CTA_PHOTO_B64}}");background-size:cover;background-position:center 60%;min-height:340px;display:flex;align-items:center;padding:0;}
-  .cta-banner::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 100% at 30% 50%, var(--cream) 30%, rgba(233,230,221,0.55) 60%, rgba(233,230,221,0) 85%);}
+  .cta-banner{position:relative;overflow:hidden;min-height:340px;display:flex;align-items:center;padding:0;background:var(--bg);}
+  .cta-banner video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 55%;z-index:0;}
+  .cta-banner::before{content:"";position:absolute;inset:0;z-index:1;background:radial-gradient(ellipse 60% 100% at 30% 50%, var(--cream) 30%, rgba(233,230,221,0.55) 60%, rgba(233,230,221,0) 85%);}
   .cta-banner .wrap{position:relative;z-index:2;max-width:520px;text-align:left;}
   .cta-banner .eyebrow{color:var(--steel);}
   .cta-banner h2{color:var(--navy);margin-top:14px;font-size:clamp(1.6rem,3vw,2.1rem);}
@@ -178,7 +179,11 @@
     </a>
     <nav class="primary" id="primaryNav">
       <a href="index.html">Inicio</a>
+      <a href="la-escribania.html">La Escribanía</a>
       <a href="index.html#servicios">Servicios</a>
+      <a href="etica.html">La Ética</a>
+      <a href="profesion.html">La Profesión</a>
+      <a href="propuesta.html">Propuesta</a>
       <a href="contacto.html">Contacto</a>
     </nav>
     <a class="btn solid desktop-only" href="contacto.html">Consultar</a>
