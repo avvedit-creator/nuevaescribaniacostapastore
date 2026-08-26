@@ -76,7 +76,6 @@
   @media (max-width:900px){.hero-copy{padding:48px 20px 40px;}}
   .hero h1{font-size:clamp(2.1rem,4.4vw,3.15rem);}
   .hero .lede{margin-top:22px;max-width:46ch;color:var(--ink-soft);font-size:1.02rem;}
-  .hero .motto{margin-top:26px;font-family:"DM Serif Display",serif;font-style:italic;font-size:1.05rem;color:var(--steel);}
   .hero .cta-row{margin-top:34px;display:flex;gap:14px;flex-wrap:wrap;}
   .hero-media{position:relative;min-height:360px;background:var(--bg);}
   .hero-media img{width:100%;height:100%;object-fit:cover;object-position:center 8%;display:block;-webkit-mask-image:linear-gradient(to right, transparent 0%, black 20%);mask-image:linear-gradient(to right, transparent 0%, black 20%);}
@@ -106,7 +105,6 @@
   .values h2{color:#F5F2E9;font-size:clamp(1.7rem,3.3vw,2.3rem);margin-top:14px;}
   .values .rule{background:#9FB2CE;}
   .values p.copy{margin-top:18px;color:#CBD5E5;max-width:56ch;}
-  .values .more-link{display:inline-block;margin-top:26px;font-size:0.78rem;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:#F5F2E9;border-bottom:1px solid rgba(245,242,233,0.5);padding-bottom:3px;}
   .values-brand{display:flex;flex-direction:column;align-items:center;flex:none;}
   .values-brand .mark{width:66px;height:73px;margin-bottom:16px;}
   .values-brand .wordmark{display:flex;flex-direction:column;align-items:center;line-height:1.05;}
@@ -131,6 +129,9 @@
   .fee-note{margin-top:22px;font-size:0.84rem;color:var(--ink-soft);font-style:italic;}
 
   /* cta banner */
+  .video-strip{position:relative;overflow:hidden;height:320px;}
+  .video-strip video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  @media (max-width:700px){.video-strip{height:220px;}}
   .cta-banner{position:relative;overflow:hidden;min-height:340px;display:flex;align-items:center;padding:0;background:var(--bg);}
   .cta-banner video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 55%;z-index:0;}
   .cta-banner::before{content:"";position:absolute;inset:0;z-index:1;background:radial-gradient(ellipse 60% 100% at 30% 50%, var(--cream) 30%, rgba(233,230,221,0.55) 60%, rgba(233,230,221,0) 85%);}
