@@ -142,7 +142,22 @@
   @media (max-width:700px){.cta-banner::before{background:radial-gradient(ellipse 90% 100% at 50% 40%, var(--cream) 45%, rgba(233,230,221,0.6) 70%, rgba(233,230,221,0.15) 100%);} .cta-banner .wrap{text-align:center;max-width:100%;}}
 
   /* contact */
-  .contact .grid{max-width:640px;}
+  .contact .grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;}
+  @media (max-width:900px){.contact .grid{grid-template-columns:1fr;}}
+  .contact-form{display:flex;flex-direction:column;gap:16px;margin-top:22px;}
+  .contact-form .f-field{display:flex;flex-direction:column;gap:6px;}
+  .contact-form label{font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--steel);font-weight:700;}
+  .contact-form input[type=text],.contact-form input[type=email],.contact-form input[type=tel],.contact-form textarea{font-family:inherit;font-size:0.92rem;padding:11px 13px;border:1px solid var(--line);border-radius:3px;background:var(--surface);color:var(--ink);}
+  .contact-form input:focus,.contact-form textarea:focus{outline:none;border-color:var(--steel);}
+  .contact-form textarea{resize:vertical;min-height:100px;}
+  .f-check{display:flex;align-items:flex-start;gap:9px;font-size:0.8rem;color:var(--ink-soft);}
+  .f-check input{margin-top:3px;}
+  .f-check a{color:var(--navy);text-decoration:underline;}
+  .f-captcha{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+  .f-captcha-question{font-family:"DM Serif Display",serif;font-size:1.1rem;color:var(--navy);}
+  .f-captcha-input{width:64px;padding:10px;border:1px solid var(--line);border-radius:3px;font-family:inherit;text-align:center;}
+  .f-captcha-error{font-size:0.76rem;color:#B3261E;width:100%;}
+  .contact-form .btn{align-self:flex-start;margin-top:4px;}
   .contact-list{margin-top:28px;display:flex;flex-direction:column;gap:20px;}
   .contact-item{display:flex;align-items:flex-start;gap:14px;}
   .contact-item svg{width:22px;height:22px;flex:none;color:var(--navy);margin-top:2px;}
@@ -309,6 +324,42 @@
           <a class="btn solid" href="mailto:escbrunoacostapastore@gmail.com">Escribir por email</a>
         </div>
       </div>
+      <div>
+        <p class="eyebrow">Formulario</p>
+        <h3>Contanos tu consulta</h3>
+        <form class="contact-form" action="https://formsubmit.co/escbrunoacostapastore@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="Nuevo mensaje desde la web - Acosta Pastore Escribanía">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="https://avvedit-creator.github.io/nuevaescribaniacostapastore/gracias.html">
+          <div class="f-field">
+            <label for="f-nombre">Nombre y apellidos</label>
+            <input type="text" id="f-nombre" name="Nombre y apellidos" required>
+          </div>
+          <div class="f-field">
+            <label for="f-email">Email</label>
+            <input type="email" id="f-email" name="email" required>
+          </div>
+          <div class="f-field">
+            <label for="f-telefono">Teléfono</label>
+            <input type="tel" id="f-telefono" name="Teléfono">
+          </div>
+          <div class="f-field">
+            <label for="f-mensaje">Mensaje</label>
+            <textarea id="f-mensaje" name="Mensaje" rows="4" required></textarea>
+          </div>
+          <label class="f-check">
+            <input type="checkbox" required>
+            <span>He leído y acepto la <a href="privacidad.html" target="_blank" rel="noopener">política de privacidad</a></span>
+          </label>
+          <div class="f-captcha">
+            <span class="f-captcha-question"></span>
+            <input type="text" class="f-captcha-input" inputmode="numeric" autocomplete="off" required aria-label="Resolvé la suma para verificar que no sos un robot">
+            <span class="f-captcha-error" hidden>Incorrecto, probá de nuevo.</span>
+          </div>
+          <button type="submit" class="btn solid">Enviar</button>
+        </form>
+      </div>
     </div>
   </div>
 </section>
@@ -349,7 +400,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 Acosta Pastore Escribanía. Todos los derechos reservados.</span>
+      <span>© 2026 Acosta Pastore Escribanía. Todos los derechos reservados. <a href="privacidad.html" style="text-decoration:underline;">Política de privacidad</a></span>
       <span>Web diseñada por Renueva Smart</span>
     </div>
   </div>
@@ -369,6 +420,25 @@
 
   const serviciosVideo = document.getElementById('serviciosVideo');
   if (serviciosVideo) serviciosVideo.playbackRate = 0.85;
+
+  document.querySelectorAll('.contact-form').forEach(form => {
+    const a = Math.floor(Math.random() * 8) + 2;
+    const b = Math.floor(Math.random() * 8) + 2;
+    const answer = a + b;
+    const qEl = form.querySelector('.f-captcha-question');
+    const inputEl = form.querySelector('.f-captcha-input');
+    const errEl = form.querySelector('.f-captcha-error');
+    if (qEl) qEl.textContent = a + ' + ' + b + ' =';
+    form.addEventListener('submit', (e) => {
+      if (parseInt(inputEl.value, 10) !== answer) {
+        e.preventDefault();
+        errEl.hidden = false;
+        inputEl.focus();
+      } else {
+        errEl.hidden = true;
+      }
+    });
+  });
 
   const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
   document.querySelectorAll('a[href^="tel:"]').forEach(el => {
